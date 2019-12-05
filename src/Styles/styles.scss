@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.body {
+    color: aliceblue;
+    display: flex;
+}
+.logo {
+    height: 50px;
+}
+.home-left {
+    background-color: #34485e;
+    height: 100vh;
+}
+.home-right {
+    padding: 100px;
+    color: black;
+    background-color: #ffff;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    align-content: center;
+    display: flex;
+}
+.button {
+    padding-top: 100px;
+}
+.text-field {
+   width: 100%;
+}
