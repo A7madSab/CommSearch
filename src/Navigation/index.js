@@ -8,16 +8,8 @@ export default function index() {
     return (
         <Router>
             <div>
-                <Route exact path="/">
-                    <div>
-                        <Search />
-                    </div>
-                </Route>
-                <Route path="/result">
-                    <div>
-                        <Result />
-                    </div>
-                </Route>
+                <Route exact path="/" component={Search} />
+                <Route path="/result/:searchString" component={Result} />
             </div>
         </Router>
     )
