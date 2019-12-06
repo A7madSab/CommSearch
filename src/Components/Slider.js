@@ -1,36 +1,24 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Slider, Typography } from '@material-ui/core'
 
-export default class PriceSlider extends Component {
-    state = {
-        value: [0, 15]
-    }
-    handleChange = (event, newValue) => {
-        this.setState(() => ({
-            value: newValue
-        }))
-    };
-    valuetext(value) {
-        return `${value}LE`;
-    }
-    render() {
-        console.log("state", this.state)
-        const { value } = this.state
-        return (
-            <div>
-                <Typography id="range-slider" gutterBottom>
-                    Cost
+export default function PriceSlider({ start, end, handleChange }) {
+    return (
+        <div>
+            <Typography id="range-slider" gutterBottom>
+                Cost
                 </Typography>
-                <Slider
-                    className="slider"
-                    value={value}
-                    onChange={this.handleChange}
-                    valueLabelDisplay="auto"
-                    aria-labelledby="range-slider"
-                    getAriaValueText={this.valuetext}
-                />
-            </div>
-        )
-    }
+            <Slider
+                className="slider"
+                value={[start, end]}
+                onChange={handleChange}
+                valueLabelDisplay="auto"
+                aria-labelledby="range-slider"
+                getAriaValueText={valuetext}
+            />
+        </div>
+    )
 }
 
+const valuetext = (value) => {
+    return `${value}LE`;
+}
