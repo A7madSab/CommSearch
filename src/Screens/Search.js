@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Grid, Typography, TextField, Box } from '@material-ui/core'
 import { Link } from "react-router-dom"
+
 import "../Styles/Search/styles.scss"
 import logo from "../Assets/logo.png"
+import Slider from "../Components/Slider"
 
 export default class Search extends Component {
     state = {
@@ -15,6 +17,7 @@ export default class Search extends Component {
             text: e.target.value
         }))
     }
+
     render() {
         return (
             <Grid container >
@@ -26,14 +29,17 @@ export default class Search extends Component {
                     </Box>
                 </Grid>
                 <Grid className="home-right" item xs={8}>
-                    <Grid container direction="row" justify="center" spacing={2} >
-                        <Grid item xs={12}>
+                    <Grid container direction="column" justify="center" spacing={5} >
+                        <Grid item>
                             <TextField
                                 className="text-field"
                                 onChange={this.change}
                                 value={this.state.text}
                                 placeholder="Insert Item"
                             />
+                        </Grid>
+                        <Grid item>
+                            <Slider />
                         </Grid>
                         <Grid item>
                             <Link
