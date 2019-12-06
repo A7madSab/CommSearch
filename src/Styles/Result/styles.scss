@@ -1,0 +1,38 @@
+.container {
+    background-color: #34485e;
+    padding: 25px;
+}
+
+.logoResult {    
+    width: 200px;
+    height: 37px;
+    padding-right: 15px;
+}
+
+.logo-link{
+    width: 200px;
+    height: 37px;
+}
+
+.card-top{
+    padding-top:10px;
+}
+.card-bottom{
+    padding: 25px;
+}
+.card {
+    width: 300px;;
+}
+.item-Card{
+    margin-bottom: 10px;
+}
+
+.text-feild {
+    width: 78vw;
+    background-color: white;
+    border-radius: 4px;
+
+    .MuiInputBase-input{
+        padding: 10px;
+    }
+}

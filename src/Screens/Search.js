@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Grid, Typography, TextField, Box } from '@material-ui/core'
 import { Link } from "react-router-dom"
-
+import "../Styles/Search/styles.scss"
 import logo from "../Assets/logo.png"
 
 export default class Search extends Component {
