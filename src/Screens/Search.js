@@ -84,13 +84,12 @@ export default class Search extends Component {
                         </Grid>
                         <Grid item>
                             <Link
-                                to={`/result/${this.state.text}`}
+                                to={`/result?name=${this.state.text}&from=${this.state.startValue}&to=${this.state.endValue}&includeUsedItems=${this.state.includeUsedItems}`}
                                 className="button"
                             >
                                 Search
                             </Link>
                         </Grid>
-
                     </Grid>
                 </Grid>
                 <Grid className="chatbot">
@@ -103,7 +102,6 @@ export default class Search extends Component {
                         handleRejectUsedItems={this.handleRejectUsedItems}
                     />
                 </Grid>
-
             </Grid>
         )
     }

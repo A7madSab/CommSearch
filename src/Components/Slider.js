@@ -1,7 +1,7 @@
 import React from 'react'
 import { Slider, Typography } from '@material-ui/core'
 
-export default function PriceSlider({ start, end, handleChange }) {
+export default function PriceSlider({ start, end, handleSliderChange }) {
     return (
         <div>
             <Typography id="range-slider" gutterBottom>
@@ -10,7 +10,7 @@ export default function PriceSlider({ start, end, handleChange }) {
             <Slider
                 className="slider"
                 value={[start, end]}
-                onChange={handleChange}
+                onChange={handleSliderChange}
                 valueLabelDisplay="auto"
                 aria-labelledby="range-slider"
                 getAriaValueText={valuetext}

@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
-import { Grid, TextField } from '@material-ui/core'
+import React, { Component } from "react"
 import { Link } from "react-router-dom"
+import { Grid, TextField, Button } from "@material-ui/core"
+import queryString from "query-string"
 
 import logo from "../Assets/logo.png"
 import TopCard from "../Components/TopCard"
@@ -8,18 +9,25 @@ import ItemCard from "../Components/ItemCard"
 
 import "../Styles/Result/styles.scss"
 
-
 export default class Result extends Component {
     state = {
-        item: ""
+        name: null,
+        to: 0,
+        from: 0,
+        includeUsedItems: null
     }
     componentDidMount() {
+        const values = queryString.parse(this.props.location.search)
+        console.log(values)
         this.setState(() => ({
-            item: this.props.match.params.searchString
+            name: values.name,
+            from: Number(values.from),
+            to: Number(values.to),
+            includeUsedItems: Boolean(values.includeUsedItems)
         }))
     }
     render() {
-        const { item } = this.state
+        const { name } = this.state
         return (
             <Grid container className="container" alignContent="space-between" direction="column" >
                 <Grid className="search-bar" direction="row" item>
@@ -29,8 +37,11 @@ export default class Result extends Component {
                     <TextField
                         className="text-feild"
                         placeholder="Search of Items"
-                        value={item}
+                        value={name}
                     />
+                    <Button variant="contained" color="default">
+                        Search
+                    </Button>
                 </Grid>
 
                 <Grid container justify="space-around" className="card-top" direction="row" >
@@ -45,7 +56,6 @@ export default class Result extends Component {
                     <ItemCard url={logo} price="100" itemName="Potato" rating="3" />
                     <ItemCard url={logo} price="100" itemName="Potato" rating="3" />
                 </Grid>
-
             </Grid>
         )
     }
