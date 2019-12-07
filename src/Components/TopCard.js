@@ -17,6 +17,9 @@ export default class TopCard extends Component {
             <Card className="item-Card">
                 <CardActionArea>
                     <CardContent>
+                        <p className="titles">
+                            {this.props.title}
+                        </p>
                         <Grid container direction="row">
                             <Grid item xs={3} alignContent="center" justify="center">
                                 <Img
@@ -39,7 +42,7 @@ export default class TopCard extends Component {
                                 </a>
                                 <Grid container direction="row" justify="center"  >
                                     <Button>
-                                        <LocalAtm /> {this.props.data.price}
+                                        <LocalAtm /> <p style={{ fontWeight: 600 }}>  {this.props.data.price}</p>
                                     </Button>
                                     <Button>
                                         <LanguageIcon /> {this.props.data.website}
@@ -48,7 +51,9 @@ export default class TopCard extends Component {
                                         <PeopleAltIcon /> {this.props.data.buyers}
                                     </Button>
                                 </Grid>
-                                <Rating name="rating" readOnly value={Number(this.props.data.rating)} />
+                                {
+                                    this.props.data.rating && <Rating name="rating" readOnly value={Number(this.props.data.rating)} />
+                                }
                             </Grid>
                         </Grid>
                     </CardContent>

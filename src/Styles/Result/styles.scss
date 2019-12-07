@@ -18,12 +18,19 @@
 }
 
 .card { 
-    width: 300px;;
+    width: 300px;
 }
 
 .item-Card {
     margin-bottom: 50px;
     margin-bottom: 30px;
+    widows: 300px;
+}
+.titles{
+    color:black;
+    padding: left 50px;
+    font-size: 35px;
+    align-items: center;
 }
 
 .search-button {
@@ -62,5 +69,6 @@
 }
 
 .Imp-img{
-    width: auto;
+    padding-left: 65px;
+    font-family: "Merriweather";
 }

@@ -12,12 +12,11 @@ import "../Styles/Result/styles.scss"
 export default function ItemCard(props) {
     console.log(props.link, props.url, props.price, props.itemName, props.buyers, props.website, props.rating)
     return (
-        //  key ,link ,url ,price ,itemName ,buyers ,website ,rating
         <Card className="item-Card">
             <CardActionArea>
                 <CardContent>
                     <Grid container direction="row">
-                        <Grid item xs={3} alignContent="center" justify="center">
+                        <Grid item xs={2} alignContent="center" justify="center">
                             <Img
                                 src={("" + props.url)}
                                 width="100"
@@ -30,7 +29,7 @@ export default function ItemCard(props) {
                                 alt="product"
                             />
                         </Grid>
-                        <Grid container direction="column" justify="space-around">
+                        <Grid container xs={9} direction="column" justify="space-around">
                             <a
                                 href={props.link}
                                 target="_blank">
