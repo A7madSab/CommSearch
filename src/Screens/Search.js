@@ -14,7 +14,7 @@ export default class Search extends Component {
         errors: "",
         product: "",
         startValue: 0,
-        endValue: 50,
+        endValue: 5000,
         includeUsedItems: false,
         chatBoxVisibale: true
     }

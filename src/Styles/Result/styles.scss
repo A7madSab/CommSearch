@@ -4,35 +4,50 @@
 }
 
 .logoResult {    
-    width: 200px;
-    height: 37px;
-    padding-right: 15px;
+    width: 86px;
+    height: 58px;
 }
 
-.logo-link{
+.logo-link {
     width: 200px;
     height: 37px;
 }
-
-.card-top{
+.section-two {
     padding-top:10px;
+    padding: 70px;
 }
-.card-bottom{
-    padding: 25px;
-}
+
 .card {
     width: 300px;;
 }
-.item-Card{
+
+.item-Card {
     margin-bottom: 10px;
 }
 
+.search-button {
+    margin: 10px;
+}
+
 .text-feild {
-    width: 78vw;
+    width: 60vw;
     background-color: white;
     border-radius: 4px;
+    margin-left: 20px;
+    margin-right: 20px;
 
     .MuiInputBase-input{
         padding: 10px;
     }
+}
+
+.title {
+    color: white;
+    font-family: sans-serif;
+    text-decoration: underline;
+    padding-bottom: 7px;
+}
+
+.section-one {
+    padding: 10px;
 }

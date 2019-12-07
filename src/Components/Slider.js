@@ -6,7 +6,7 @@ export default function PriceSlider({ start, end, handleSliderChange }) {
         <div>
             <Typography id="range-slider" gutterBottom>
                 Cost
-                </Typography>
+            </Typography>
             <Slider
                 className="slider"
                 value={[start, end]}
@@ -14,6 +14,7 @@ export default function PriceSlider({ start, end, handleSliderChange }) {
                 valueLabelDisplay="auto"
                 aria-labelledby="range-slider"
                 getAriaValueText={valuetext}
+                max={30000}
             />
         </div>
     )
