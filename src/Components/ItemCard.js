@@ -48,7 +48,7 @@ export default function ItemCard(props) {
                                 <Button>
                                     <PeopleAltIcon /> {props.buyers}
                                 </Button>
-                                <Rating name="rating" value={Number(props.rating)} />
+                                <Rating name="rating" readOnly value={Number(props.rating)} />
                             </Grid>
                         </Grid>
                     </Grid>

@@ -1,11 +1,9 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
-import { Grid, TextField, Button, Typography, CircularProgress, Card, CardContent } from "@material-ui/core"
+import { Grid, Typography, CircularProgress } from "@material-ui/core"
 
-import { Rating } from '@material-ui/lab'
 import queryString from "query-string"
 
-import logo from "../Assets/logo.png"
 import TopCard from "../Components/TopCard"
 import ItemCard from "../Components/ItemCard"
 import { getProducts } from "../Api/index"
@@ -21,17 +19,14 @@ export default class Result extends Component {
         includeUsedItems: null,
         products: []
     }
-    async componentDidMount() {
+    async componentWillMount() {
         const values = queryString.parse(this.props.location.search)
         const products = await getProducts(values.name, values.includeUsedItems, values.from, values.to)
-        console.log("products", products)
 
         let others = []
         products.other.map((item) => {
-            others.push(item[1])
+            return others.push(item[1])
         })
-
-        console.log("products", products)
 
         this.setState(() => ({
             cheapest: products.cheapest,
@@ -41,33 +36,43 @@ export default class Result extends Component {
 
             loading: false
         }))
+
+        this.forceUpdate()
     }
     render() {
-        const { name, cheapest, mostExpensive, top_rated } = this.state
+        const { cheapest, mostExpensive, top_rated } = this.state
         return (
             <Grid container className="container" alignContent="space-between" direction="column" >
-                <Grid container className="search-bar" direction="row" >
-                    <Link className="logo-link" to="/">
-                        <img className="logoResult" src={logo} alt="logo" />
-                    </Link>
-                    <TextField
-                        className="text-feild"
-                        placeholder="Search of Items"
-                        value={name}
-                    />
-                    <Button className="search-button" variant="contained" color="default">
-                        Search
-                    </Button>
-                </Grid>
 
                 <Grid container justify="space-around" className="section-one" direction="column" >
                     <Typography variant="h3" component="h2" align="center" className="title">
                         Best Offers
                     </Typography>
                     <Grid container justify="space-around" direction="row">
-                        <TopCard data={cheapest} />
-                        <TopCard data={mostExpensive} />
-                        <TopCard data={top_rated} />
+                        {
+                            this.state.loading
+                                ? <CircularProgress
+                                    className="Progress"
+                                    size={60}
+                                />
+                                : <TopCard data={cheapest} />
+                        }
+                        {
+                            this.state.loading
+                                ? <CircularProgress
+                                    className="Progress"
+                                    size={60}
+                                />
+                                : <TopCard data={mostExpensive} />
+                        }
+                        {
+                            this.state.loading
+                                ? <CircularProgress
+                                    className="Progress"
+                                    size={60}
+                                />
+                                : <TopCard data={top_rated} />
+                        }
                     </Grid>
                 </Grid>
 
@@ -102,3 +107,6 @@ export default class Result extends Component {
     }
 }
 
+
+// <TopCard data={mostExpensive} />
+// <TopCard data={top_rated} />
