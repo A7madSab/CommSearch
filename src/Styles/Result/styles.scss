@@ -17,12 +17,13 @@
     padding: 70px;
 }
 
-.card {
+.card { 
     width: 300px;;
 }
 
 .item-Card {
-    margin-bottom: 10px;
+    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .search-button {
@@ -43,11 +44,19 @@
 
 .title {
     color: white;
-    font-family: sans-serif;
-    text-decoration: underline;
+    font-family: monospace;
+
     padding-bottom: 7px;
 }
 
 .section-one {
     padding: 10px;
+}
+
+.Progress{
+    width: 60px;
+    height: 60px;
+    align-self: center;
+    padding: 50px;
+    color: white;
 }

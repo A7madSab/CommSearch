@@ -4,7 +4,6 @@ const product = "http://127.0.0.1:8000/products?"
 const getEntities = async (product) => {
     const res = await fetch(luis + product)
     const data = await res.json()
-    console.log(data)
     if (data.entities.length > 2) {
         return {
             keyword: product
