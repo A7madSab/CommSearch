@@ -1,4 +1,4 @@
-# CommSearch
+# World-Market
 An E-Commerce search engine saving users the hard work of searching many website to find the perfect product.
 
 ## What it does
