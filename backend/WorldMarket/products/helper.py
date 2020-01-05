@@ -35,7 +35,7 @@ def get_products_amazon_with_country(keyword, country):
     clean_soup(soup)
 
     # Extract data
-    soup = soup.select('div[class="a-section a-spacing-medium"]', limit=20)
+    soup = soup.select('div[class="a-section a-spacing-medium"]', limit=50)
 
     products = []
     for product in soup:
@@ -104,7 +104,7 @@ def clean_soup_ebay(soup):
         tag.decompose()
 
     collector = []
-    for tags in soup.find_all('div', {"class": "s-item__wrapper clearfix"}, limit=20):
+    for tags in soup.find_all('div', {"class": "s-item__wrapper clearfix"}, limit=30):
         # Image
         img_s = tags.find('div', {"class": "s-item__image-section"})
         img_t = img_s.find('div', {"class": "s-item__image"})
@@ -162,7 +162,7 @@ def clean_soup_souq(soup):
     for tag in soup('script'):
         tag.decompose()
     collector = []
-    for tags in soup.find_all('div', {"class": "column column-block block-list-large single-item"}, limit=20):
+    for tags in soup.find_all('div', {"class": "column column-block block-list-large single-item"}, limit=50):
         # title
         title = tags['data-name']
 
@@ -223,6 +223,7 @@ def get_all_products(keyword, price_range, is_used):
 
 
 def filter_products(keyword, price_range, category, products):
+    print('1', len(products))
     # Remove unwanted results
     new_products = []
     for product in products:
@@ -240,10 +241,11 @@ def filter_products(keyword, price_range, category, products):
             continue
 
         # Skip if keyword not found
-        if product['name'].lower().find(keyword.lower()) == -1:
-            continue
+        # if product['name'].lower().find(keyword.lower()) == -1:
+        #     continue
 
         new_products.append(product)
+    print('2', len(new_products))
 
     # Remove outliers and category non-fits
     total_price = 0
